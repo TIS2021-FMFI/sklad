@@ -28,11 +28,11 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(cell.get_position(), 5)
         self.assertEqual(cell.is_blocked(), False)
 
-    def test_save_configuration(self):
-        self.warehouse.save_configuration()
-        with open('config_copy.json') as config_file:
-            config = json.load(config_file)
-        self.assertEqual(self.warehouse.get_warehouse(),  config)
+##    def test_save_configuration(self):
+##        self.warehouse.save_configuration()
+##        with open('config_copy.json') as config_file:
+##            config = json.load(config_file)
+##        self.assertEqual(self.warehouse.get_warehouse(),  config)
 
 
 if __name__ == '__main__':

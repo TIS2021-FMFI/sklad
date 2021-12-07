@@ -59,12 +59,8 @@ class Warehouse:
             for shelf in shelving_unit.get_shelves().values():
                 for cell in shelf.get_cells().values():
                     self.__warehouse[shelving_unit.get_name()][shelf.get_name()][cell.get_name()]['blocked'] = cell.is_blocked()
-        with open("config_copy.json", "w") as output_file:
+        with open(self.__config_path, "w") as output_file:
             json.dump(self.__warehouse, output_file, indent=4)
 
 
-if __name__ == "__main__":
-    warehouse = Warehouse("Gefco", "config_mock_data.json")
-    warehouse.load_configuration()
-    print(warehouse['05']['B'])
-    warehouse.save_configuration()
+
