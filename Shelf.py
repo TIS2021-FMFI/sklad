@@ -28,7 +28,7 @@ class Shelf:
             cell_string += str(cell) + ","
         cell_string = cell_string[:-1]
         cell_string += "}"
-        return f"Shelf(name={self.__name}, level={self.__level}, cells={cell_string})"
+        return "\n" + " "*8 + f"\nShelf(name={self.__name}, level={self.__level}, cells={cell_string})"
 
 
 

@@ -32,4 +32,4 @@ class ShelvingUnit:
             shelf_string += str(shelf) + ","
         shelf_string = shelf_string[:-1]
         shelf_string += "}"
-        return f"ShelvingUnit(name={self.__name}, x={self.__x}, y={self.__y}, shelves={shelf_string})"
+        return "\n" + " "*4 + f"\nShelvingUnit(name={self.__name}, x={self.__x}, y={self.__y}, shelves={shelf_string})"

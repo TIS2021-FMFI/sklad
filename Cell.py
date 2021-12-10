@@ -21,9 +21,12 @@ class Cell:
     def is_blocked(self) -> bool:
         return self.__blocked
 
-    def change_block_state(self):
+    def change_block_state2(self, blocked: bool):
+        self.__blocked = blocked
+
+    def change_block_state(self):  # ???
         self.__name = not self.__blocked
 
     def __str__(self):
-        return f"Cell(name={self.__name}, position={self.__position}, blocked={self.__blocked})"
+        return "\n" + " "*12 + f"Cell(name={self.__name}, position={self.__position}, blocked={self.__blocked})"
 
