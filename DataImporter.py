@@ -1,6 +1,7 @@
 from openpyxl import *
 from Warehouse import Warehouse
 from ShelvingUnit import *
+from state1 import State
 
 class DataImporter:
 
@@ -25,9 +26,9 @@ class DataImporter:
                 cell_name = names[2] + "-" + names[3]
             material = materials[i].value
             if (material != "<< prázdny >>"):
-                warehouse[shelvingunit_name][shelf_name][cell_name].change_block_state2(False)
+                warehouse[shelvingunit_name][shelf_name][cell_name].set_state(State.OCCUPIED)
             else:
-                warehouse[shelvingunit_name][shelf_name][cell_name].change_block_state2(True)
+                warehouse[shelvingunit_name][shelf_name][cell_name].set_state(State.FREE)
 
 
 
