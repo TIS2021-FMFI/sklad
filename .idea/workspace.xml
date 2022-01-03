@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d6ef0a9-f7a5-4d65-9efb-63c34a2d9414" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cell.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataImporter.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataImporter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shelf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShelvingUnit.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShelvingUnit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarehouseViewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/WarehouseViewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +37,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sklad_test/sklad" />
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="UnitTestWarehouse" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
