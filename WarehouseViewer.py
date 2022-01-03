@@ -35,6 +35,9 @@ class WarehouseViewer:
         self.__buttons_shelves = {}
         self.__labels = []
 
+        self.__detail_window = None
+        self.__buttons_cells = {}
+
         self.__legend_image = Image.open("legend.png")
         self.__imageTk = ImageTk.PhotoImage(self.__legend_image)
 
@@ -96,12 +99,20 @@ class WarehouseViewer:
             return "green"
         return "red"
 
-    @staticmethod
-    def open_new_window(unit_id: str) -> tk.Toplevel:
-        new_window = tk.Toplevel()
-        new_window.title(f"Regal cislo: {unit_id}")
-        new_window.state('zoomed')
-        return new_window
+    def open_new_window(self, unit_id: str) -> tk.Toplevel:
+        if self.__detail_window is not None:
+            self.close_detail_window()
+        self.__detail_window = tk.Toplevel()
+        self.__detail_window.title(f"Regal cislo: {unit_id}")
+        self.__detail_window.state('zoomed')
+        self.__detail_window.protocol("WM_DELETE_WINDOW", self.close_detail_window)
+        return self.__detail_window
+
+    def close_detail_window(self):
+        self.__detail_window.destroy()
+        self.__detail_window = None
+        self.__buttons_cells = {}
+
 
     def shelving_unit_button_press(self, unit_id: str):
         window = self.open_new_window(unit_id)
@@ -132,6 +143,12 @@ class WarehouseViewer:
                         rel_height: float, rel_width: float, cell: Cell):
         button.place(relx=rel_x, rely=rel_y, relheight=rel_height, relwidth=rel_width)
         button.config(command=lambda: self.cell_button_press(button, cell))
+        self.__buttons_cells[button] = cell
+
+    def update_button_cell_text(self):
+        for button in self.__buttons_cells:
+            cell = self.__buttons_cells[button]
+            button.config(bg=self.get_colour(cell))
 
     def resize(self):
         width = self.canvas.winfo_width()

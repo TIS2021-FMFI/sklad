@@ -7,6 +7,7 @@
     <list default="true" id="6d6ef0a9-f7a5-4d65-9efb-63c34a2d9414" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WarehouseController.py" beforeDir="false" afterPath="$PROJECT_DIR$/WarehouseController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WarehouseViewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/WarehouseViewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/export.XLSX" beforeDir="false" afterPath="$PROJECT_DIR$/export.XLSX" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
