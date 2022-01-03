@@ -78,7 +78,7 @@ class WarehouseViewer:
             count_free_cells = shelf.get_number_of_free_cells()
             count_blocked_cells = shelf.get_number_of_blocked_cells()
             text = f"{count_free_cells}" if (count_blocked_cells == 0) else f"{count_free_cells}({count_blocked_cells})"
-            button.config(text=text)
+            button.config(text=text, bg=self.get_colour_by_count(count_free_cells))
 
     @staticmethod
     def get_colour_by_count(count: int) -> str:
@@ -97,14 +97,14 @@ class WarehouseViewer:
         return "red"
 
     @staticmethod
-    def openNewWindow(unit_id: str) -> tk.Toplevel:
-        newWindow = tk.Toplevel()
-        newWindow.title(f"Regal cislo: {unit_id}")
-        newWindow.state('zoomed')
-        return newWindow
+    def open_new_window(unit_id: str) -> tk.Toplevel:
+        new_window = tk.Toplevel()
+        new_window.title(f"Regal cislo: {unit_id}")
+        new_window.state('zoomed')
+        return new_window
 
     def shelving_unit_button_press(self, unit_id: str):
-        window = self.openNewWindow(unit_id)
+        window = self.open_new_window(unit_id)
         self.draw_shelving_unit_side(window, unit_id)
         window.bind("<Configure>", lambda x: self.resize_shelf(window))
         
