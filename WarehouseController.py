@@ -21,13 +21,17 @@ class WarehouseController:
         data_importer.getShelvingUnits(self.__warehouse)
         viewer = WarehouseViewer(self.__warehouse, canvas)
         viewer.show()
-        rt = RepeatedTimer(10, viewer.update_button_text)
+        rt = RepeatedTimer(10, self.update, data_importer, self.__warehouse, viewer)
         try:
             tk.mainloop()
         finally:
             rt.stop()
             self.__warehouse.save_configuration()
 
+
+    def update(self, data_importer, warehouse, viewer):
+        data_importer.getShelvingUnits(warehouse)
+        viewer.update_button_text()
 
 if __name__ == '__main__':
     controller = WarehouseController()
