@@ -727,7 +727,7 @@
             },
             "03": {
                 "position": 3,
-                "blocked": false
+                "blocked": true
             },
             "04": {
                 "position": 4,

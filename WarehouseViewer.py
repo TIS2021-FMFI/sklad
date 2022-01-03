@@ -23,9 +23,9 @@ class WarehouseViewer:
 
         self.__min_width = width / self.__max_col
         self.__min_height = (height - self.__min_width) / self.__max_row
-        self.__DELTA_FONT_FOR_WAREHOUSE = 1/97.375   # const
+        self.__DELTA_FONT_FOR_WAREHOUSE = 1/140 #1/97.375   # const
         self.__DELTA_FONT_FOR_SHELF = 1 / 120        # const
-        self.__DELTA_SIZE_IMAGE = [143 / 1536, 313 / 864]
+        self.__DELTA_SIZE_IMAGE = [429 / 1536, 400 / 864] #[143 / 1536, 313 / 864]
         self.__font_for_warehouse = tkFont.Font(family='sans', weight='bold',
                                                 size=int((width+height)*self.__DELTA_FONT_FOR_WAREHOUSE))
         self.__font_for_shelving_unit = tkFont.Font(family='sans', weight='bold',
@@ -38,7 +38,7 @@ class WarehouseViewer:
         self.__detail_window = None
         self.__buttons_cells = {}
 
-        self.__legend_image = Image.open("legend.png")
+        self.__legend_image = Image.open("legend_sk.png")
         self.__imageTk = ImageTk.PhotoImage(self.__legend_image)
 
     def draw_shelving_unit_top_down(self, unit_id: str):
@@ -145,7 +145,7 @@ class WarehouseViewer:
         button.config(command=lambda: self.cell_button_press(button, cell))
         self.__buttons_cells[button] = cell
 
-    def update_button_cell_text(self):
+    def update_button_cell_background(self):
         for button in self.__buttons_cells:
             cell = self.__buttons_cells[button]
             button.config(bg=self.get_colour(cell))
@@ -155,7 +155,7 @@ class WarehouseViewer:
         height = self.canvas.winfo_height()
         self.__font_for_warehouse.config(size=int((width+height)*self.__DELTA_FONT_FOR_WAREHOUSE))
         self.canvas.delete("legend")
-        self.__legend_image = Image.open("legend.png").resize((int(width * self.__DELTA_SIZE_IMAGE[0]),
+        self.__legend_image = Image.open("legend_sk.png").resize((int(width * self.__DELTA_SIZE_IMAGE[0]),
                                                                int(height * self.__DELTA_SIZE_IMAGE[1])))
         self.__imageTk = ImageTk.PhotoImage(self.__legend_image)
         self.canvas.create_image(width - self.__legend_image.width // 2, height - self.__legend_image.height // 2,
@@ -193,7 +193,7 @@ class WarehouseViewer:
     def draw_legend(self):
         width = self.canvas.winfo_screenwidth()
         height = self.canvas.winfo_screenheight()
-        self.__legend_image = Image.open("legend.png")
+        self.__legend_image = Image.open("legend_sk.png")
         self.__imageTk = ImageTk.PhotoImage(self.__legend_image)
         self.canvas.create_image(width-self.__legend_image.width//2,
                                  height-self.__legend_image.height//2, image=self.__imageTk, tag="legend")

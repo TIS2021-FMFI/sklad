@@ -31,7 +31,7 @@ class WarehouseController:
     def update(self, data_importer, warehouse, viewer):
         data_importer.getShelvingUnits(warehouse)
         viewer.update_button_text()
-        viewer.update_button_cell_text()
+        viewer.update_button_cell_background()
 
 
 if __name__ == '__main__':
