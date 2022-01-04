@@ -7,7 +7,7 @@ import tkinter as tk
 
 class WarehouseController:
     def __init__(self):
-        config_path = 'martins_config_2.json'
+        config_path = './data/warehouse_config.json'
         warehouse_name = 'gefco'
         self.__warehouse = Warehouse(warehouse_name, config_path)
         self.__warehouse.load_configuration()
