@@ -2501,35 +2501,35 @@
             "height": 4,
             "01": {
                 "position": 1,
-                "blocked": false
+                "blocked": true
             },
             "02": {
                 "position": 2,
-                "blocked": false
+                "blocked": true
             },
             "03": {
                 "position": 3,
-                "blocked": false
+                "blocked": true
             },
             "04": {
                 "position": 4,
-                "blocked": false
+                "blocked": true
             },
             "05": {
                 "position": 5,
-                "blocked": false
+                "blocked": true
             },
             "06": {
                 "position": 6,
-                "blocked": false
+                "blocked": true
             },
             "07": {
                 "position": 7,
-                "blocked": false
+                "blocked": true
             },
             "08": {
                 "position": 8,
-                "blocked": false
+                "blocked": true
             },
             "09": {
                 "position": 9,
@@ -4422,15 +4422,15 @@
             },
             "13": {
                 "position": 13,
-                "blocked": false
+                "blocked": true
             },
             "14": {
                 "position": 14,
-                "blocked": false
+                "blocked": true
             },
             "15": {
                 "position": 15,
-                "blocked": false
+                "blocked": true
             },
             "16": {
                 "position": 16,
