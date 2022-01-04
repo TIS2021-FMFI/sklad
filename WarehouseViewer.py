@@ -8,7 +8,7 @@ from state1 import State
 
 class WarehouseViewer:
 
-    def __init__(self, warehouse: Warehouse, canvas: tk.Canvas):
+    def __init__(self, warehouse: Warehouse, canvas: tk.Canvas, display_width: int , display_height: int):
         self.warehouse = warehouse
         self.canvas = canvas
 
@@ -18,8 +18,8 @@ class WarehouseViewer:
         unit_id, unit = max(self.warehouse.get_shelving_units().items(), key=lambda i: i[1].get_y())
         self.__max_row = unit.get_y()
         
-        width = canvas.winfo_screenwidth()
-        height = canvas.winfo_screenheight()
+        width = display_width
+        height = display_height
 
         self.__min_width = width / self.__max_col
         self.__min_height = (height - self.__min_width) / self.__max_row

@@ -2,8 +2,8 @@ from Warehouse import Warehouse
 from WarehouseViewer import WarehouseViewer
 from repeatedTimer import RepeatedTimer
 from DataImporter import DataImporter
+import pyglet as pyg
 import tkinter as tk
-
 
 class WarehouseController:
     def __init__(self):
@@ -12,20 +12,46 @@ class WarehouseController:
         self.__warehouse = Warehouse(warehouse_name, config_path)
         self.__warehouse.load_configuration()
 
+        list_of_displays = pyg.canvas.Display().get_screens()
+        list_of_roots = []
         root = tk.Tk()
-        root.state('zoomed')
-        canvas = tk.Canvas(root, bg='white', highlightthickness=0)
-        canvas.pack(fill=tk.BOTH, expand=True)
-
+        for x,display in enumerate(list_of_displays):
+            if x == 0: # main display is showed first, 
+                root.state('zoomed')
+                canvas = tk.Canvas(root, bg='white', highlightthickness=0)
+                canvas.pack(fill=tk.BOTH, expand=True)
+                list_of_roots.append([root,display.width,
+                                 display.height, display.x, display.y, canvas])
+            else:
+                rk = tk.Toplevel(root) # new root window for secondary display
+                rk.state('zoomed')
+                canvas = tk.Canvas(rk, bg='white', highlightthickness=0)
+                canvas.pack(fill=tk.BOTH, expand=True)
+                list_of_roots.append([rk,display.width,
+                                 display.height, display.x, display.y, canvas]) #root, resolution x , resolution y, top left position of monitor x, top left position of monitor y
+        
         data_importer = DataImporter()
         data_importer.getShelvingUnits(self.__warehouse)
-        viewer = WarehouseViewer(self.__warehouse, canvas)
-        viewer.show()
-        rt = RepeatedTimer(10, self.update, data_importer, self.__warehouse, viewer)
+
+        list_of_viewers = [] # list of roots with data
+        for roots in list_of_roots: # fill roots with data
+            viewer = WarehouseViewer(self.__warehouse, roots[5], roots[4], roots[3])
+            list_of_viewers.append(viewer)
+
+        for x in list_of_roots: # move root on virtual display, 
+            x[0].geometry('%dx%d+%d+%d' % (x[1], x[2] ,
+                               x[3], x[4]))
+
+        list_of_rt = []
+        for x, viewer in enumerate(list_of_viewers):  # update displays
+            viewer.show()
+            list_of_rt.append(RepeatedTimer(10, self.update, data_importer, self.__warehouse, viewer))
+
         try:
-            tk.mainloop()
+            tk.mainloop()   
         finally:
-            rt.stop()
+            for rt in list_of_rt:
+                rt.stop()
             self.__warehouse.save_configuration()
 
     def update(self, data_importer, warehouse, viewer):
@@ -36,3 +62,4 @@ class WarehouseController:
 
 if __name__ == '__main__':
     controller = WarehouseController()
+
