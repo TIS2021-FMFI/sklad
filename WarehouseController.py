@@ -44,7 +44,7 @@ class WarehouseController:
                                x[3], x[4]))
 
         list_of_rt = []
-        for x, viewer in enumerate(list_of_viewers):  # update displays
+        for viewer in list_of_viewers:  # update displays
             viewer.show()
             list_of_rt.append(RepeatedTimer(10, self.update, data_importer, self.__warehouse, viewer))
 
