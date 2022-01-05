@@ -6,7 +6,7 @@ from state1 import State
 class DataImporter:
 
     def __init__(self):
-        self.__globalPath = "export.XLSX"  # later will be changed for normal
+        self.__globalPath = "./data/export.XLSX"  # later will be changed for normal
 
     def setDataFile(self, path: str):
         self.__globalPath = path
