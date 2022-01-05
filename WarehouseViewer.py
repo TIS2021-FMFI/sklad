@@ -68,7 +68,7 @@ class WarehouseViewer:
             rel_y = (shelves_count - i - 1) * rel_height + (rel_height / 2)
             count_free_cells = shelf.get_number_of_free_cells()
             count_blocked_cells = shelf.get_number_of_blocked_cells()
-            text = f"{count_free_cells}" if (count_blocked_cells == 0) else f"{count_free_cells}({count_blocked_cells})"
+            text = f"{count_free_cells}" if (count_blocked_cells == 0) else f"{count_free_cells}\n({count_blocked_cells})"
             button = tk.Button(root, text=text, font=self.__font_for_warehouse,
                                bg=self.get_colour_by_count(count_free_cells))
             button.config(command=lambda: self.shelving_unit_button_press(unit_id))
@@ -120,10 +120,9 @@ class WarehouseViewer:
         window.bind("<Configure>", lambda x: self.resize_shelf(window))
         
     def cell_button_press(self, button: tk.Button, cell: Cell):
-        if cell.get_state() == State.FREE:
-            cell.change_block_state()
-            self.update_button_text()
-            button.config(bg=self.get_colour(cell))
+        cell.change_block_state()
+        self.update_button_text()
+        button.config(bg=self.get_colour(cell))
     
     def draw_shelving_unit_side(self, root, unit_id: str):
         unit = self.warehouse[unit_id]
