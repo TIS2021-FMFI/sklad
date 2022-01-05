@@ -16,6 +16,7 @@ class WarehouseController:
         list_of_displays = pyg.canvas.Display().get_screens()
         list_of_roots = []
         root = tk.Tk()
+        root.title("Nahlad skladu")
         for x,display in enumerate(list_of_displays):
             if x == 0: # main display is showed first, 
                 root.state('zoomed')

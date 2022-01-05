@@ -933,11 +933,11 @@
             "height": 4,
             "01": {
                 "position": 1,
-                "blocked": true
+                "blocked": false
             },
             "02": {
                 "position": 2,
-                "blocked": true
+                "blocked": false
             },
             "03": {
                 "position": 3,
