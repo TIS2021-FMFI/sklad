@@ -109,7 +109,7 @@ def simulate(input_path : str, output_path : str, period : int=300, n : int=-1, 
                 j = 0
                 df = remove_random_unit(df)
             randomly_occupy(df)   
-            df.to_excel(output_path)  
+            df.to_excel(output_path, index=False)  
             time.sleep(period)
             i += 1
             j += 1
@@ -123,6 +123,6 @@ if __name__ == '__main__':
     """df = pd.read_excel(input_path)
     randomly_occupy(df)
     df.to_excel(output_path)"""
-    simulate(input_path, output_path)
+    simulate(input_path, output_path, 15)
 
     
