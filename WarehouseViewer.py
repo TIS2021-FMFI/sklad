@@ -4,6 +4,7 @@ from PIL import ImageTk, Image
 import tkinter.font as tkFont
 import Cell
 from state1 import State
+from state1 import State
 
 
 class WarehouseViewer:
@@ -120,9 +121,10 @@ class WarehouseViewer:
         window.bind("<Configure>", lambda x: self.resize_shelf(window))
         
     def cell_button_press(self, button: tk.Button, cell: Cell):
-        cell.change_block_state()
-        self.update_button_text()
-        button.config(bg=self.get_colour(cell))
+        if cell.get_state() == State.FREE:
+            cell.change_block_state()
+            self.update_button_text()
+            button.config(bg=self.get_colour(cell))
     
     def draw_shelving_unit_side(self, root, unit_id: str):
         unit = self.warehouse[unit_id]
