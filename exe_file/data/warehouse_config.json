@@ -2778,19 +2778,19 @@
             "height": 2,
             "01": {
                 "position": 1,
-                "blocked": true
+                "blocked": false
             },
             "02": {
                 "position": 2,
-                "blocked": true
+                "blocked": false
             },
             "03": {
                 "position": 3,
-                "blocked": true
+                "blocked": false
             },
             "04": {
                 "position": 4,
-                "blocked": true
+                "blocked": false
             },
             "05": {
                 "position": 5,
@@ -2901,19 +2901,19 @@
             },
             "07": {
                 "position": 7,
-                "blocked": true
+                "blocked": false
             },
             "08": {
                 "position": 8,
-                "blocked": true
+                "blocked": false
             },
             "09": {
                 "position": 9,
-                "blocked": true
+                "blocked": false
             },
             "10": {
                 "position": 10,
-                "blocked": true
+                "blocked": false
             },
             "11": {
                 "position": 11,
@@ -2976,43 +2976,43 @@
             "height": 4,
             "01": {
                 "position": 1,
-                "blocked": true
+                "blocked": false
             },
             "02": {
                 "position": 2,
-                "blocked": true
+                "blocked": false
             },
             "03": {
                 "position": 3,
-                "blocked": true
+                "blocked": false
             },
             "04": {
                 "position": 4,
-                "blocked": true
+                "blocked": false
             },
             "05": {
                 "position": 5,
-                "blocked": true
+                "blocked": false
             },
             "06": {
                 "position": 6,
-                "blocked": true
+                "blocked": false
             },
             "07": {
                 "position": 7,
-                "blocked": true
+                "blocked": false
             },
             "08": {
                 "position": 8,
-                "blocked": true
+                "blocked": false
             },
             "09": {
                 "position": 9,
-                "blocked": true
+                "blocked": false
             },
             "10": {
                 "position": 10,
-                "blocked": true
+                "blocked": false
             },
             "11": {
                 "position": 11,
@@ -3020,7 +3020,7 @@
             },
             "12": {
                 "position": 12,
-                "blocked": true
+                "blocked": false
             },
             "13": {
                 "position": 13,

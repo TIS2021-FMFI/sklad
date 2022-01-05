@@ -2,6 +2,7 @@ from openpyxl import *
 from Warehouse import Warehouse
 from ShelvingUnit import *
 from state1 import State
+import time
 
 class DataImporter:
 
@@ -11,7 +12,17 @@ class DataImporter:
     def setDataFile(self, path: str):
         self.__globalPath = path
 
-    def getShelvingUnits(self, warehouse: Warehouse) -> ShelvingUnit:
+    def getShelvingUnits(self, warehouse: Warehouse):    
+        try:
+            self.updateWarehouse(warehouse)
+        except PermissionError:
+            try:
+                time.sleep(5)
+                self.updateWarehouse(warehouse)
+            except PermissionError:
+                return 
+
+    def updateWarehouse(self, warehouse: Warehouse):
         wb = load_workbook(self.__globalPath)
         ws = wb["Sheet1"]
         warehouse_places = ws['B']
@@ -26,9 +37,9 @@ class DataImporter:
                 cell_name = names[2]
             material = materials[i].value
             if (material != "<< prázdny >>"):
-                warehouse[shelvingunit_name][shelf_name][cell_name].set_state(State.OCCUPIED)
+                cell = warehouse[shelvingunit_name][shelf_name][cell_name]
+                cell.set_state(State.OCCUPIED)
+                if cell.is_blocked():
+                    cell.change_block_state()                   
             else:
                 warehouse[shelvingunit_name][shelf_name][cell_name].set_state(State.FREE)
-
-
-

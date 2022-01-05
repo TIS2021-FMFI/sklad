@@ -10576,7 +10576,7 @@
             },
             "06": {
                 "position": 6,
-                "blocked": false
+                "blocked": true
             },
             "07": {
                 "position": 7,
