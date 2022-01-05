@@ -4,7 +4,6 @@ from PIL import ImageTk, Image
 import tkinter.font as tkFont
 import Cell
 from state1 import State
-from state1 import State
 
 
 class WarehouseViewer:
