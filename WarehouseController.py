@@ -4,6 +4,7 @@ from repeatedTimer import RepeatedTimer
 from DataImporter import DataImporter
 import pyglet as pyg
 import tkinter as tk
+import sys
 
 class WarehouseController:
     def __init__(self):
@@ -46,7 +47,7 @@ class WarehouseController:
         list_of_rt = []
         for viewer in list_of_viewers:  # update displays
             viewer.show()
-            list_of_rt.append(RepeatedTimer(10, self.update, data_importer, self.__warehouse, viewer))
+            list_of_rt.append(RepeatedTimer(20, self.update, data_importer, self.__warehouse, viewer))
 
         try:
             tk.mainloop()   
@@ -54,6 +55,7 @@ class WarehouseController:
             for rt in list_of_rt:
                 rt.stop()
             self.__warehouse.save_configuration()
+            sys.exit()
 
     def get_congif_path_from_file(self):
         with open("./data/config.txt", "r") as file:

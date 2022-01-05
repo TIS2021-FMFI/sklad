@@ -933,11 +933,11 @@
             "height": 4,
             "01": {
                 "position": 1,
-                "blocked": false
+                "blocked": true
             },
             "02": {
                 "position": 2,
-                "blocked": false
+                "blocked": true
             },
             "03": {
                 "position": 3,
@@ -10576,7 +10576,7 @@
             },
             "06": {
                 "position": 6,
-                "blocked": false
+                "blocked": true
             },
             "07": {
                 "position": 7,
