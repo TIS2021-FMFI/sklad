@@ -31,6 +31,7 @@ class WarehouseController:
                                  display.height, display.x, display.y, canvas]) #root, resolution x , resolution y, top left position of monitor x, top left position of monitor y
         
         data_importer = DataImporter()
+        data_importer.setDataFile(self.get_congif_path_from_file())
         data_importer.getShelvingUnits(self.__warehouse)
 
         list_of_viewers = [] # list of roots with data
@@ -53,6 +54,12 @@ class WarehouseController:
             for rt in list_of_rt:
                 rt.stop()
             self.__warehouse.save_configuration()
+
+    def get_congif_path_from_file(self):
+        with open("./data/config.txt", "r") as file:
+            for line in file:
+                if "#" not in line:
+                    return line
 
     def update(self, data_importer, warehouse, viewer):
         data_importer.getShelvingUnits(warehouse)
