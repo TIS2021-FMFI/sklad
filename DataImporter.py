@@ -8,9 +8,13 @@ class DataImporter:
 
     def __init__(self):
         self.__globalPath = "./data/export.XLSX"
+        self.__warehouseType = "121"
 
     def setDataFile(self, path: str):
         self.__globalPath = path
+
+    def setWarehouseType(self, type: str):
+        self.__warehouseType = type
 
     def getShelvingUnits(self, warehouse: Warehouse):    
         try:
@@ -29,7 +33,7 @@ class DataImporter:
         warehouse_places = ws['B']
         materials = ws['C']
         for i in range(1, len(warehouse_places)):
-            if warehouse_types[i].value != '121':
+            if warehouse_types[i].value != self.__warehouseType:
                 continue
             names = warehouse_places[i].value.split('-')
             if len(names) < 3 or len(names) > 4:
