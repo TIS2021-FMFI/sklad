@@ -1,4 +1,6 @@
 from state1 import State
+
+
 class Cell:
     def __init__(self, name: str, position: int, blocked: bool):
         self.__name = name
@@ -9,7 +11,7 @@ class Cell:
     def set_state(self, state: State):
         self.__state = state
 
-    def get_state(self):
+    def get_state(self) -> State:
         return self.__state
         
     def get_name(self) -> str:

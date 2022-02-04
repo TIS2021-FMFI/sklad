@@ -4,36 +4,37 @@ from ShelvingUnit import *
 from state1 import State
 import time
 
+
 class DataImporter:
 
     def __init__(self):
-        self.__globalPath = "./data/export.XLSX"
-        self.__warehouseType = "121"
+        self.__global_path = "./data/export.XLSX"
+        self.__warehouse_type = "121"
 
-    def setDataFile(self, path: str):
-        self.__globalPath = path
+    def set_data_file(self, path: str):
+        self.__global_path = path
 
-    def setWarehouseType(self, type: str):
-        self.__warehouseType = type
+    def set_warehouse_type(self, warehouse_type: str):
+        self.__warehouse_type = warehouse_type
 
-    def getShelvingUnits(self, warehouse: Warehouse):    
+    def get_shelving_units(self, warehouse: Warehouse):
         try:
-            self.updateWarehouse(warehouse)
+            self.update_warehouse(warehouse)
         except PermissionError:
             try:
                 time.sleep(5)
-                self.updateWarehouse(warehouse)
+                self.update_warehouse(warehouse)
             except PermissionError:
                 return 
 
-    def updateWarehouse(self, warehouse: Warehouse):
-        wb = load_workbook(self.__globalPath)
+    def update_warehouse(self, warehouse: Warehouse):
+        wb = load_workbook(self.__global_path)
         ws = wb["Sheet1"]
         warehouse_types = ws['A']
         warehouse_places = ws['B']
         materials = ws['C']
         for i in range(1, len(warehouse_places)):
-            if warehouse_types[i].value != self.__warehouseType:
+            if warehouse_types[i].value != self.__warehouse_type:
                 continue
             names = warehouse_places[i].value.split('-')
             if len(names) < 3 or len(names) > 4:

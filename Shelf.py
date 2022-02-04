@@ -1,11 +1,11 @@
 import Cell
 from state1 import State
 
+
 class Shelf:
     def __init__(self, shelf_name: str, level: int):
         self.__name = shelf_name
         self.__level = level
-        self.__accessible = None
         self.__cells = dict()
 
     def get_name(self) -> str:
@@ -24,14 +24,11 @@ class Shelf:
     def get_level(self) -> int:
         return self.__level
 
-    def get_cells(self) -> dict[Cell]:
+    def get_cells(self) -> dict[str, Cell]:
         return self.__cells
 
     def add_cell(self, cell: Cell):
         self.__cells[cell.get_name()] = cell
-        
-    def get_accessible(self):
-        return self.__accessible
 
     def __getitem__(self, item: str):
         return self.__cells[item]

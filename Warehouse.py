@@ -14,7 +14,7 @@ class Warehouse:
     def get_name(self) -> str:
         return self.__name
 
-    def get_shelving_units(self) -> dict[ShelvingUnit]:
+    def get_shelving_units(self) -> dict[str, ShelvingUnit]:
         return self.__shelving_units
 
     def get_warehouse(self) -> dict:

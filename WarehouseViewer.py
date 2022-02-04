@@ -63,7 +63,6 @@ class WarehouseViewer:
         su_label = tk.Label(root, text=unit_id)
         su_label.place(relx=0, rely=0, relheight=rel_height / 2, relwidth=rel_width)
         su_label.config(font=self.__font_for_warehouse)
-        # self.__labels.append(su_label)
         for i, shelf in enumerate(self.warehouse[unit_id].get_shelves().values()):
             rel_y = (shelves_count - i - 1) * rel_height + (rel_height / 2)
             count_free_cells = shelf.get_number_of_free_cells()
@@ -112,7 +111,6 @@ class WarehouseViewer:
         self.__detail_window.destroy()
         self.__detail_window = None
         self.__buttons_cells = {}
-
 
     def shelving_unit_button_press(self, unit_id: str):
         window = self.open_new_window(unit_id)
