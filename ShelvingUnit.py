@@ -17,7 +17,7 @@ class ShelvingUnit:
     def get_y(self) -> float:
         return self.__y
 
-    def get_shelves(self) -> dict[Shelf]:
+    def get_shelves(self) -> dict[str, Shelf]:
         return self.__shelves
 
     def add_shelf(self, shelf: Shelf):

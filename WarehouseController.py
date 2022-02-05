@@ -6,6 +6,7 @@ import pyglet as pyg
 import tkinter as tk
 import sys
 
+
 class WarehouseController:
     def __init__(self):
         config_path = './data/warehouse_config.json'
@@ -34,9 +35,9 @@ class WarehouseController:
         
         data_importer = DataImporter()
         config_data = self.get_data_from_config_file()
-        data_importer.setDataFile(config_data[0])
-        data_importer.setWarehouseType(config_data[1])
-        data_importer.getShelvingUnits(self.__warehouse)
+        data_importer.set_data_file(config_data[0])
+        data_importer.set_warehouse_type(config_data[1])
+        data_importer.get_shelving_units(self.__warehouse)
 
         list_of_viewers = [] # list of roots with data
         for roots in list_of_roots: # fill roots with data
@@ -73,7 +74,7 @@ class WarehouseController:
             return [path, warehouse_type]
 
     def update(self, data_importer, warehouse, viewer):
-        data_importer.getShelvingUnits(warehouse)
+        data_importer.get_shelving_units(warehouse)
         viewer.update_button_text()
         viewer.update_button_cell_background()
 
