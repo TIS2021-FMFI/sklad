@@ -2901,11 +2901,11 @@
             },
             "07": {
                 "position": 7,
-                "blocked": true
+                "blocked": false
             },
             "08": {
                 "position": 8,
-                "blocked": true
+                "blocked": false
             },
             "09": {
                 "position": 9,
