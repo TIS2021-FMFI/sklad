@@ -2905,11 +2905,11 @@
             },
             "08": {
                 "position": 8,
-                "blocked": true
+                "blocked": false
             },
             "09": {
                 "position": 9,
-                "blocked": true
+                "blocked": false
             },
             "10": {
                 "position": 10,
